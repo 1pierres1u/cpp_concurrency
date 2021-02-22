@@ -35,6 +35,7 @@ struct SortBatch
 
 struct Runner
 { SortBatch sb;
+  vector<thread> T;
   Runner()
   {
   }
@@ -42,9 +43,10 @@ struct Runner
   {
   }
   void sort()
-  { while(!sb.stop())
-    {  thread t(sb);
-       t.join();
+  { T.clear();
+    while(!sb.stop())
+    {  T.push_back(thread(sb));
+       T[T.size()-1].detach();
        sb.next_one();
     }
   }
