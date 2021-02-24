@@ -34,6 +34,17 @@ void increment_by_reference()
     T[T.size()-1].join();
   }
 }
+/*
+void increment_by_reference_1()
+{ vector<thread> T;
+  A as;
+  Tm = 10;
+  while(Tm--)
+  { T.push_back(thread(&as)); error &as
+    T[T.size()-1].join();
+  }
+}
+*/
 
 int main()
 { int i=1;
